@@ -1,0 +1,9 @@
+      {/* <select onChange={()=>browserChange()} ref={Browser}>
+        <option>edge</option>
+        <option>chrome</option>
+        <option>Brave</option>
+        <option>Safari</option>
+      </select> */}
+      {/* {loginDetails.map((i)=>(
+        i.name
+      ))} */}

@@ -1,0 +1,46 @@
+{
+  "registerdetails": [
+    {
+      "name": "shashi",
+      "pass": "1234567890",
+      "email": "shashi@gmailo.com",
+      "id": 4
+    },
+    {
+      "name": "Ramu",
+      "pass": "1234",
+      "email": "Ramu@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "vihani",
+      "pass": "123",
+      "email": "vihani@gmail.com",
+      "id": 6
+    },
+    {
+      "name": "kiran",
+      "pass": "123",
+      "email": "kiran@gmail.com",
+      "id": 7
+    }
+  ],
+  "leavedetails": [
+    {
+      "fromdate": "2023-02-11",
+      "todate": "2023-02-25",
+      "leavetype": "CasualLeave",
+      "reason": "Ramuleave",
+      "status": "approved",
+      "id": 3
+    },
+    {
+      "fromdate": "2023-02-09",
+      "todate": "2023-02-17",
+      "leavetype": "CasualLeave",
+      "reason": "shashi leaves",
+      "status": "approved",
+      "id": 5
+    }
+  ]
+}
