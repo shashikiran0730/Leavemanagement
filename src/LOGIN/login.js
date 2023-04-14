@@ -36,6 +36,7 @@ export const Login = () => {
             name: i.name,
             id: i.id,
           };
+          sessionStorage.setItem("logindata",JSON.stringify({...a}))
           setloginid({ ...a });
           navigate("/welcome");
           setErrorMessage(false);

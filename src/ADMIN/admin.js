@@ -1,34 +1,46 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Admin = () => {
   const [leavedetails, setLeavesdetails] = useState([]);
-  const [x, setx] = useState(false);
-
-  const approveLeaves = async (data) => {
-    const response = await axios.put(
+  const approveLeaves = (data) => {
+    const response = axios.put(
       `http://localhost:3000/leavedetails/${data.id}`,
       {
         ...data,
         status: "approved",
       }
     );
-    if (response.data) {
+  
       fetchDetails();
-    }
+    
+  };
+  const rejectLeaves = (data) => {
+    const response = axios.put(
+      `http://localhost:3000/leavedetails/${data.id}`,
+      {
+        ...data,
+        status: "rejected",
+      }
+    );
+    fetchDetails()
   };
   const fetchDetails = () => {
     axios.get("http://localhost:3000/leavedetails").then((res) => {
-      console.log(res.data);
-      setLeavesdetails([...res.data]);
+      let a=[]
+     res.data.map((i)=>{
+      if(i.status=='pending'){
+      a.push(i)
+      console.log(a)
+      }
+    })
+      setLeavesdetails([...a]);
     });
   };
   useEffect(() => {
     fetchDetails();
   }, []);
-
-  // axios.post("http://localhost:3000/leavedetails", res.data)
-
   return (
     <div>
       {leavedetails.map((i) => (
@@ -40,8 +52,11 @@ export const Admin = () => {
           <div>{i.status}</div>
           <div>{i.registerid}</div>
           <button onClick={() => approveLeaves(i)}>APPROVE</button>
+          <br></br>
+          <button onClick={() => rejectLeaves(i)}>REJECT</button>
         </div>
       ))}
+      <Link to={"/approvedorrejected"}>ALLLEAVES</Link>
     </div>
   );
 };

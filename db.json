@@ -23,24 +23,70 @@
       "pass": "123",
       "email": "kiran@gmail.com",
       "id": 7
+    },
+    {
+      "name": "vamshi",
+      "pass": "qwertyuiop",
+      "email": "vamshi@gmail.com",
+      "id": 8
+    },
+    {
+      "name": "saritha",
+      "pass": "123456",
+      "email": "",
+      "id": 9
+    },
+    {
+      "name": "shashi",
+      "pass": "1234567890",
+      "email": "",
+      "id": 10
     }
   ],
   "leavedetails": [
     {
-      "fromdate": "2023-02-11",
-      "todate": "2023-02-25",
-      "leavetype": "CasualLeave",
-      "reason": "Ramuleave",
+      "fromdate": "2023-03-02",
+      "todate": "2023-03-05",
+      "leavetype": "SickLeave",
+      "reason": "qwerty",
       "status": "approved",
-      "id": 3
+      "registerid": 8,
+      "id": 57
     },
     {
-      "fromdate": "2023-02-09",
-      "todate": "2023-02-17",
+      "fromdate": "2023-03-09",
+      "todate": "2023-03-12",
       "leavetype": "CasualLeave",
-      "reason": "shashi leaves",
-      "status": "approved",
-      "id": 5
+      "reason": "asdfghj",
+      "status": "rejected",
+      "registerid": 8,
+      "id": 58
+    },
+    {
+      "fromdate": "",
+      "todate": "",
+      "leavetype": "SickLeave",
+      "reason": "",
+      "status": "pending",
+      "id": 59
+    },
+    {
+      "fromdate": "2023-03-17",
+      "todate": "2023-03-10",
+      "leavetype": "CasualLeave",
+      "reason": "qwerty",
+      "status": "pending",
+      "registerid": 4,
+      "id": 60
+    },
+    {
+      "fromdate": "2023-03-17",
+      "todate": "2023-03-10",
+      "leavetype": "CasualLeave",
+      "reason": "qwerty",
+      "status": "pending",
+      "registerid": 4,
+      "id": 61
     }
   ]
 }

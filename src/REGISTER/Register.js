@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import { Navigate, useNavigate } from "react-router";
+import "./Register.css"
 
 export const Register = () => {
   const [Details, setDetails] = useState([]);
@@ -21,14 +22,22 @@ export const Register = () => {
   };
 
   return (
-    <div>
-      <input type="text" placeholder="username" ref={uname}></input>
-      <br></br>
-      <input type="password" placeholder="Enterpassword" ref={mypass}></input>
-      <br></br>
-      <input type="email" placeholder="EnterEmail" ref={email}></input>
-      <br />
-      <button onClick={() => registerDetails()}>Register</button>
+    <div className="register-container">
+      <div className="field">
+        <label>Username</label>
+        <input type="text"  ref={uname}></input>
+      </div>
+      <div className="field">
+        <label>Password</label>
+        <input type="password" ref={mypass}></input>
+      </div>
+      <div className="field">
+        <label>Email</label>
+        <input type="email" ref={email}></input>
+      </div>
+      <div className="field">
+        <button onClick={() => registerDetails()}>Register</button>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,50 @@
+.field{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.field input{
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: white;
+}
+
+.field textarea{
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: white;
+}
+
+.field select{
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: white;
+}
+
+.field button{
+    width: 300px;
+    height: 50px;
+    background-color: rgb(20, 174, 208);
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.field input:focus{
+    outline: none;
+    border-bottom: 5px solid red;
+}
+
+.register-container{
+    width: 50vw;
+    margin:10px  auto;
+    flex-direction: row;
+    justify-content: center;
+}

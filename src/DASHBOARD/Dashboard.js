@@ -11,11 +11,13 @@ export const DashBoard = () => {
   };
   return (
     <div className="c-1">
-      <Link to="/myleaves">
-        <button>MYLEAVES</button>
-      </Link>
-
-      <button onClick={() => Logout()}>LOGOUT</button>
+      <div className="c-title">Leaves</div>
+      <div className="c-menu">
+        <Link to="/myleaves" >
+          <button className="c-button">MYLEAVES</button>
+        </Link>
+        <button onClick={() => Logout()} className="c-button">LOGOUT</button>
+      </div>
     </div>
   );
 };

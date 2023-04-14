@@ -1,0 +1,16 @@
+.w-content{
+    width: 60vw;
+    margin: 1px auto;
+    border: 1px solid grey;
+    min-height: 70vh;
+    max-height: max-content;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
+}
+
+.field-con{
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+}

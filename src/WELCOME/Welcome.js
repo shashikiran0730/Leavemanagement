@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useReducer, useRef } from "react";
 import { mycontext } from "../App";
 import { DashBoard } from "../DASHBOARD/Dashboard";
+import "./welcome.css";
 
 export const Welcome = () => {
   const [loginDetails, setLoginDetails] = useContext(mycontext);
@@ -15,52 +16,54 @@ export const Welcome = () => {
       todate: todate.current.value,
       leavetype: leavetype.current.value,
       reason: reason.current.value,
-      "status":"pending",
-      registerid:loginDetails.id
+      status: "pending",
+      registerid: loginDetails.id,
     };
-    console.log(a)
-    axios.post("http://localhost:3000/leavedetails",a)
-   
+    console.log(a);
+    axios.post("http://localhost:3000/leavedetails", a);
   };
 
   return (
-    <div>
+    <div className="page">
       <DashBoard></DashBoard>
-      <h1>WELCOME {loginDetails.name}</h1>
-      <div>
-        <h1>LEAVE APPLICATION</h1>
+      <h2>WELCOME {loginDetails.name}</h2>
+      <div className="w-content">
         <div>
-          FROMDATE:
-          <input type="date" placeholder="FROMDATE" ref={fromdate}></input>
-        </div>{" "}
-        <br></br>
-        <div>
-          {" "}
-          TODATE:<input type="date" placeholder="TODATE" ref={todate}></input>
-        </div>
-        LEAVETYPE:
-        <select ref={leavetype}>
-          <option value="SickLeave">SickLeave</option>
-          <option value="CasualLeave">CasualLeave</option>
-          <option value="PaidLeave"> PaidLeave</option>
-          <option value="MaternityLeave">MaternityLeave</option>
-        </select>
-        <div style={{ display: "flex" }}>
-          {" "}
-          <span>Reason</span>{" "}
-          <span>
-            {" "}
+          <h2>LEAVE APPLICATION</h2>
+          <div className="field-con">
+            <div className="field">
+              <label>FROMDATE</label>
+              <input type="date" placeholder="FROMDATE" ref={fromdate}></input>
+            </div>
+            <div className="field">
+              <label>TODATE</label>
+              <input type="date" placeholder="TODATE" ref={todate}></input>
+            </div>
+          </div>
+          <div className="field">
+            <label> LEAVETYPE</label>
+            <select ref={leavetype}>
+              <option value="SickLeave">SickLeave</option>
+              <option value="CasualLeave">CasualLeave</option>
+              <option value="PaidLeave"> PaidLeave</option>
+              <option value="MaternityLeave">MaternityLeave</option>
+            </select>
+          </div>
+          <div className="field">
+            <label>Reason</label>
             <textarea maxLength="200" ref={reason}></textarea>
-          </span>
+          </div>
+        </div>
+        <div className="field">
+          <button
+            onClick={() => {
+              LeaveDetails();
+            }}
+          >
+            APPLY
+          </button>
         </div>
       </div>
-      <button
-        onClick={() => {
-          LeaveDetails();
-        }}
-      >
-        APPLY
-      </button>
     </div>
   );
 };
