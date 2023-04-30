@@ -2,16 +2,21 @@ import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { mycontext } from "../App";
+import "./login.css";
+import { Register } from "../REGISTER/Register";
 
 export const Login = () => {
   const uname = useRef();
   const mypass = useRef();
+  const email = useRef();
   const [loginDetails, setLoginDetails] = useState([]);
   const [loginid, setloginid] = useContext(mycontext);
   const [ErrorMessage, setErrorMessage] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const getLoginDetails = () => {
     axios
       .get("http://localhost:3000/registerdetails")
       .then((res) => {
@@ -20,7 +25,28 @@ export const Login = () => {
       .catch((e) => {
         console.log(e);
       });
+  };
+  useEffect(() => {
+getLoginDetails()
   }, []);
+  const renderRegisterPage = () => {
+    setIsLogin(false);
+  };
+  const renderLoginPage = () => {
+    setIsLogin(true);
+  };
+
+  const register = () => {
+    var d = {
+      name: uname.current.value,
+      pass: mypass.current.value,
+      email: email.current.value,
+    };
+    console.log(d);
+    axios.post("http://localhost:3000/registerdetails", d);
+getLoginDetails()
+    setIsLogin(true);
+  };
 
   const Login = () => {
     if (
@@ -31,12 +57,13 @@ export const Login = () => {
       navigate("/admin");
     } else {
       loginDetails.map((i) => {
-        if (i.name == uname.current.value && i.pass == mypass.current.value) {
+        console.log(uname.mypass?.current.value);
+        if (i.name == uname.current.value || i.pass == mypass.current.value) {
           const a = {
             name: i.name,
             id: i.id,
           };
-          sessionStorage.setItem("logindata",JSON.stringify({...a}))
+          sessionStorage.setItem("logindata", JSON.stringify({ ...a }));
           setloginid({ ...a });
           navigate("/welcome");
           setErrorMessage(false);
@@ -48,12 +75,97 @@ export const Login = () => {
   };
   return (
     <div>
-      <input type="text" placeholder="username" ref={uname}></input>
-      <br></br>
-      <input type="password" placeholder="Enterpassword" ref={mypass}></input>
-      <br></br>
-      <button onClick={() => Login()}>LOGIN</button>
-      <br></br>
+      <div className="feilds">
+        <div className="signpage">
+          <div
+            onClick={() => renderLoginPage()}
+            className={isLogin ? "helo" : ""}
+          >
+            {" "}
+            Login
+          </div>
+          <div className={!isLogin ? "helo" : ""}>
+            <div
+              onClick={() => {
+                renderRegisterPage();
+              }}
+            >
+              Register
+            </div>
+          </div>
+        </div>
+
+        {isLogin && (
+          <>
+            <div>
+              <div className="container-1">
+                <div className="feild">
+                  <input
+                    className="innerfeild"
+                    type="text"
+                    placeholder="username"
+                    ref={uname}
+                  ></input>
+                </div>
+
+                <div className="feild">
+                  <input
+                    className="innerfeild"
+                    type="password"
+                    placeholder="Enterpassword"
+                    ref={mypass}
+                  ></input>
+                </div>
+              </div>
+            </div>
+            <div className="btn-1">
+              <button className="innerfeildbutton" onClick={() => Login()}>
+                LOGIN
+              </button>
+            </div>
+          </>
+        )}
+
+        {!isLogin && (
+          <>
+            <div>
+              <div className="container-1">
+                <div className="feild">
+                  <input
+                    className="innerfeild"
+                    type="text"
+                    placeholder="username"
+                    ref={uname}
+                  ></input>
+                </div>
+
+                <div className="feild">
+                  <input
+                    className="innerfeild"
+                    type="password"
+                    placeholder="Enterpassword"
+                    ref={mypass}
+                  ></input>
+                </div>
+              </div>
+            </div>
+            <div className="feild">
+              <input
+                className="innerfeild"
+                type="email"
+                placeholder="EnterEmail"
+                ref={email}
+              ></input>
+            </div>
+            <div className="btn-1">
+              <button className="innerfeildbutton" onClick={() => register()}>
+                REGISTER
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+
       {ErrorMessage && "INDVALID DETAILS"}
     </div>
   );

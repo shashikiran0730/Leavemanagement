@@ -22,22 +22,7 @@ export const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <div className="field">
-        <label>Username</label>
-        <input type="text"  ref={uname}></input>
-      </div>
-      <div className="field">
-        <label>Password</label>
-        <input type="password" ref={mypass}></input>
-      </div>
-      <div className="field">
-        <label>Email</label>
-        <input type="email" ref={email}></input>
-      </div>
-      <div className="field">
-        <button onClick={() => registerDetails()}>Register</button>
-      </div>
-    </div>
+      
+     <div>hi</div>
   );
 };
