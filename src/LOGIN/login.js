@@ -5,6 +5,8 @@ import { mycontext } from "../App";
 import "./login.css";
 import { Register } from "../REGISTER/Register";
 
+
+
 export const Login = () => {
   const uname = useRef();
   const mypass = useRef();
@@ -42,7 +44,7 @@ getLoginDetails()
       pass: mypass.current.value,
       email: email.current.value,
     };
-    console.log(d);
+ 
     axios.post("http://localhost:3000/registerdetails", d);
 getLoginDetails()
     setIsLogin(true);
@@ -77,21 +79,18 @@ getLoginDetails()
     <div>
       <div className="feilds">
         <div className="signpage">
-          <div
+          <div 
             onClick={() => renderLoginPage()}
             className={isLogin ? "helo" : ""}
           >
-            {" "}
             Login
-          </div>
-          <div className={!isLogin ? "helo" : ""}>
-            <div
+          </div> 
+          <div className={!isLogin ? "helo" : ""}
               onClick={() => {
                 renderRegisterPage();
               }}
             >
               Register
-            </div>
           </div>
         </div>
 

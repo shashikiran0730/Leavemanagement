@@ -5,6 +5,7 @@
   width: fit-content;
   margin: 12vw auto;
 
+
 }
 .innerfeild {
   padding: 1vw;
@@ -43,3 +44,7 @@ padding: 5px;
   text-align: center;
 }
 
+.signpage > div{
+  text-align: center;
+  flex: 1;
+}
