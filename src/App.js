@@ -23,8 +23,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route>
-              <Route path="/" element={<Register></Register>}></Route>
-              <Route path="/login" element={<Login></Login>}></Route>
+              <Route path="/" element={<Login></Login>}></Route>
               <Route path="/welcome" element={<Welcome></Welcome>}>
                 {" "}
               </Route>
