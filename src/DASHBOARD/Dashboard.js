@@ -7,7 +7,7 @@ export const DashBoard = () => {
   const navigate = useNavigate();
   const Logout = () => {
     setloginid("");
-    navigate("/login");
+    navigate("/");
   };
   return (
     <div className="c-1">

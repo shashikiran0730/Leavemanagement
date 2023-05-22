@@ -13,8 +13,9 @@ export const Login = () => {
   const email = useRef();
   const [loginDetails, setLoginDetails] = useState([]);
   const [loginid, setloginid] = useContext(mycontext);
-  const [ErrorMessage, setErrorMessage] = useState(false);
+  const [isErrorMessage, setisErrorMessage] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const [modalClassName, setmodalClassName] = useState('modal-display')
 
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ export const Login = () => {
     axios
       .get("http://localhost:3000/registerdetails")
       .then((res) => {
+        console.log(res.data)
         setLoginDetails([...res.data]);
       })
       .catch((e) => {
@@ -29,7 +31,7 @@ export const Login = () => {
       });
   };
   useEffect(() => {
-getLoginDetails()
+    getLoginDetails()
   }, []);
   const renderRegisterPage = () => {
     setIsLogin(false);
@@ -44,9 +46,14 @@ getLoginDetails()
       pass: mypass.current.value,
       email: email.current.value,
     };
- 
-    axios.post("http://localhost:3000/registerdetails", d);
-getLoginDetails()
+try{
+  axios.post("http://localhost:3000/registerdetails", d);
+}
+catch{
+  console.log("axios failed")
+}
+   
+    getLoginDetails()
     setIsLogin(true);
   };
 
@@ -68,29 +75,45 @@ getLoginDetails()
           sessionStorage.setItem("logindata", JSON.stringify({ ...a }));
           setloginid({ ...a });
           navigate("/welcome");
-          setErrorMessage(false);
+          setisErrorMessage(false);
         } else {
-          setErrorMessage(true);
+          setisErrorMessage(true);
         }
       });
     }
   };
+
+  const renderInvalidModal = () => {
+    return (
+      <div className={isErrorMessage?'modal-display':'modal'}>
+        <div className="modal-content">
+          <div className="modal-items">
+            <div>INVALIDDETAILS....please enter correct DETAILS</div>
+            <button onClick={() => setisErrorMessage(false)}>X</button>
+          </div>
+
+
+        </div>
+
+      </div>
+    )
+  }
   return (
     <div>
       <div className="feilds">
         <div className="signpage">
-          <div 
+          <div
             onClick={() => renderLoginPage()}
             className={isLogin ? "helo" : ""}
           >
             Login
-          </div> 
+          </div>
           <div className={!isLogin ? "helo" : ""}
-              onClick={() => {
-                renderRegisterPage();
-              }}
-            >
-              Register
+            onClick={() => {
+              renderRegisterPage();
+            }}
+          >
+            Register
           </div>
         </div>
 
@@ -165,7 +188,10 @@ getLoginDetails()
         )}
       </div>
 
-      {ErrorMessage && "INDVALID DETAILS"}
+      {isErrorMessage && renderInvalidModal()}
+
+
+      {true && "INDVALID DETAILS"}
     </div>
   );
 };

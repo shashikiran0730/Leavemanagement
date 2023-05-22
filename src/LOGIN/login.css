@@ -7,44 +7,84 @@
 
 
 }
+
 .innerfeild {
   padding: 1vw;
   width: 200px;
   border: none;
   outline: none;
 }
+
 .innerfeildbutton {
- width: 100%;
+  width: 100%;
   padding: 1.2vw;
-  background-color:orangered;
+  background-color: orangered;
   height: 5vw;
 }
+
 .feild {
   padding: 20px;
 }
+
 .innerfeild:focus {
   border-bottom: 2px solid orangered;
 }
 
-.container-1{
-padding: 5px;
+.container-1 {
+  padding: 5px;
 }
 
-.signpage{
+.signpage {
   display: flex;
   justify-content: space-evenly;
-  font-family:'Times New Roman', Times, serif;
-  font-weight:300;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
   margin-top: 20px;
 
 }
-.helo{
+
+.helo {
   border-bottom: 2px solid black;
   width: 30%;
   text-align: center;
 }
 
-.signpage > div{
+.signpage>div {
   text-align: center;
   flex: 1;
+}
+
+.modal-content {
+  font-weight: bold;
+  border: 2px solid black;
+  width: 30vw;
+  padding: 15px;
+  margin-left: 36vw;
+  margin-top: 20vw;
+  background-color: #ffff;
+  color: red;
+}
+
+.modal {
+  display: none;
+  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0, 0.4);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-display {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.182);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-items {
+  display: flex;
+  justify-content: space-between;
 }
