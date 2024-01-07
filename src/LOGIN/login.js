@@ -27,7 +27,7 @@ export const Login = () => {
         setLoginDetails([...res.data]);
       })
       .catch((e) => {
-        console.log(e);
+        console.log(e,"sample");
       });
   };
   useEffect(() => {
@@ -181,7 +181,7 @@ catch{
             </div>
             <div className="btn-1">
               <button className="innerfeildbutton" onClick={() => register()}>
-                REGISTER
+                REGISTERS
               </button>
             </div>
           </>
@@ -191,7 +191,7 @@ catch{
       {isErrorMessage && renderInvalidModal()}
 
 
-      {true && "INDVALID DETAILS"}
+    
     </div>
   );
 };
