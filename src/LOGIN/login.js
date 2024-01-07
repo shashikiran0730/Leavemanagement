@@ -188,8 +188,7 @@ catch{
         )}
       </div>
 
-      {isErrorMessage && renderInvalidModal()}
-
+      {isErrorMessage && renderInvalidModal()}<div></div>
 
     
     </div>
