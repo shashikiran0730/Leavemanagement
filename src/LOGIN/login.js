@@ -11,7 +11,9 @@ export const Login = () => {
   const uname = useRef();
   const mypass = useRef();
   const email = useRef();
+  // declaring all states 
   const [loginDetails, setLoginDetails] = useState([]);
+  
   const [loginid, setloginid] = useContext(mycontext);
   const [isErrorMessage, setisErrorMessage] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
